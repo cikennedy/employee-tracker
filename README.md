@@ -5,23 +5,19 @@
 
   This application is a solution for managing an organization's employees using Node.js, the inquirer package, and MySQL. 
 
+  [GitHub Repository](https://github.com/cikennedy/employee-tracker)
+
+  [Video Walkthrough](www.youtube.com)
+
   ## Table of Contents
 
   * [Installation](#installation)
 
   * [Usage](#usage)
-
-  * [Credits](#credits)
   
   * [License](#license)
 
   * [Badges](#badges)
-
-  * [Features](#features)
-
-  * [Contribution](#contribution)
-
-  * [Tests](#tests)
 
   * [Questions](#questions)
 
@@ -33,10 +29,6 @@
 
   N/A
 
-  ## Credits
-
-  N/A
-
   ## License
 
   This project is licensed using the MIT license.
@@ -44,18 +36,6 @@
   ## Badges
 
   ![GitHub License](https://img.shields.io/badge/license-MIT-yellow.svg)
-
-  ## Features
-
-  N/A
-
-  ## Contribution
-
-  N/A
-
-  ## Tests
-
-  N/A
 
   ## Questions
 
