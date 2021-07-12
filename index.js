@@ -89,11 +89,13 @@ const addEmployee = () => {
             name: "first_name",
             type: "input",
             message: "Enter the employee's first name."
+            // add validation
         },
         {
             name: "last_name",
             type: "input",
             message: "Enter the employee's last name."
+            // add validation
         },
         {
             name: "role",
@@ -107,7 +109,9 @@ const addEmployee = () => {
             message: "Select the employee's manager."
             //choices: 
         }
-    ])
+    ]).then((answer) => {
+
+    })
 
 };
 
@@ -126,6 +130,28 @@ const viewRoles = () => {
 };
 
 const addRole = () => {
+inquirer.prompt([
+        {
+            name: "title",
+            type: "input",
+            message: "Enter the role title."
+            // add validation
+        },
+        {
+            name: "salary",
+            type: "input",
+            message: "Enter the role salary."
+            // add validation
+        },
+        {
+            name: "department",
+            type: "list",
+            message: "Select the role's department."
+            //choices: 
+        }
+    ]).then((answer) => {
+        
+    })
 
 };
 
@@ -140,5 +166,15 @@ const viewDepartments = () => {
 };
 
 const addDepartment = () => {
+    inquirer.prompt([
+        {
+            name: "department_name",
+            type: "input",
+            message: "Enter the name of the department."
+            // add validation
+        }
+    ]).then((answer) => {
+        
+    })
 
 };
