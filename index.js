@@ -46,28 +46,72 @@ const runTracker = () => {
                 break;
 
             case 'Add Employee':
-                viewEmployees();
+                addEmployee();
                 break;
             
             case 'Update Employee Role':
-                viewEmployees();
+                updateEmployeeRole();
                 break; 
                 
             case 'View All Roles':
-                viewEmployees();
+                viewRoles();
                 break;  
                 
             case 'Add Role':
-                viewEmployees();
+                addRole();
                 break;
 
             case 'View All Departments':
-                viewEmployees();
+                viewDepartments();
                 break;
 
             case 'Add Department':
-                viewEmployees();
+                addDepartment();
                 break;
         }
     })
-}
+};
+
+// Function for viewing all employees. Check that all SQL terminology is correct
+const viewEmployees = () => {
+    const query = 
+    'SELECT first_name last_name FROM employee';
+    connection.query(query, (err, res) => {
+        res.forEach(({ first_name, last_name }) => console.log(first_name, last_name));
+        runSearch();
+    });
+};
+
+const addEmployee = () => {
+
+};
+
+const updateEmployeeRole = () => {
+
+};
+
+const viewRoles = () => {
+    const query = 
+    'SELECT title FROM roles';
+    connection.query(query, (err, res) => {
+        res.forEach(({ title }) => console.log(title));
+        runSearch();
+    });
+};
+
+const addRole = () => {
+
+};
+
+const viewDepartments = () => {
+    const query = 
+    'SELECT department_name FROM department';
+    connection.query(query, (err, res) => {
+        res.forEach(({ department_name }) => console.log(department_name));
+        runSearch();
+    });
+};
+
+const addDepartment = () => {
+
+};
