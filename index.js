@@ -73,6 +73,7 @@ const runTracker = () => {
 };
 
 // Function for viewing all employees. Check that all SQL terminology is correct
+// Change function to include console.table in response
 const viewEmployees = () => {
     const query = 
     'SELECT first_name last_name FROM employee';
@@ -83,6 +84,30 @@ const viewEmployees = () => {
 };
 
 const addEmployee = () => {
+    inquirer.prompt([
+        {
+            name: "first_name",
+            type: "input",
+            message: "Enter the employee's first name."
+        },
+        {
+            name: "last_name",
+            type: "input",
+            message: "Enter the employee's last name."
+        },
+        {
+            name: "role",
+            type: "list",
+            message: "Select the employee's role."
+            //choices: 
+        },
+        {
+            name: "manager",
+            type: "list",
+            message: "Select the employee's manager."
+            //choices: 
+        }
+    ])
 
 };
 
@@ -90,6 +115,7 @@ const updateEmployeeRole = () => {
 
 };
 
+// Change function to include console.table in response
 const viewRoles = () => {
     const query = 
     'SELECT title FROM roles';
@@ -103,6 +129,7 @@ const addRole = () => {
 
 };
 
+// Change function to include console.table in response
 const viewDepartments = () => {
     const query = 
     'SELECT department_name FROM department';
