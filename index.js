@@ -72,7 +72,7 @@ const runTracker = () => {
     })
 };
 
-// Function for viewing all employees that are in the database 
+// View all employees that are in the database 
 const viewEmployees = () => {
     const query = 
     'SELECT * FROM employee';
@@ -83,7 +83,7 @@ const viewEmployees = () => {
     });
 };
 
-// Add employees 
+// Add a new employee 
 const addEmployee = () => {
     connection.query('SELECT * FROM role', function (err, res) {
         if (err) throw err;
@@ -143,8 +143,41 @@ const addEmployee = () => {
 };
 
 const updateEmployeeRole = () => {
-
+    connection.query('SELECT * FROM employee', function (err, res) {
+        if (err) throw err;
+    inquirer.prompt([
+        {
+            name: "employeeToUpdate",
+            type: "list",
+            message: "Select the employee ID to be updated.",
+            // function to provide the array and then list of the employee roles 
+            choices: function() {
+                var employeeArr = [];
+                for (let i = 0; i < res.length; i++) {
+                    employeeArr.push(res[i].id);
+                }
+                return employeeArr;
+            }
+        },
+        {
+            name: "newEmployeeRole",
+            type: "input",
+            message: "Enter the new role ID the employee."
+            // add validation
+        }
+    ])
+    .then((res) => {
+        connection.query(`UPDATE employee SET role_id = "${newEmployeeRole}" WHERE id = "${employeeToUpdate}"`,
+        function (err, res) {
+            if (err) throw err;
+            console.table(res)
+            console.log("Employee successfully updated.");
+            runTracker();
+            })
+        })
+    })
 };
+
 
 // View roles in the database 
 const viewRoles = () => {
@@ -157,6 +190,7 @@ const viewRoles = () => {
     });
 };
 
+// Add a new role
 const addRole = () => {
     connection.query('SELECT * FROM department', function (err, res) {
         if (err) throw err;
@@ -238,7 +272,7 @@ const addDepartment = () => {
         );
         connection.query('SELECT * FROM department', function (err, res) {
             if (err) throw err;
-            console.log("Department Successfully added");
+            console.log("Department Successfully added.");
             runTracker();
         })
     })
