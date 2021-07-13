@@ -167,6 +167,10 @@ const updateEmployeeRole = () => {
         }
     ])
     .then((res) => {
+        // Create constants to retrieve the form information
+        const newEmployeeRole = res.newEmployeeRole;
+        const employeeToUpdate = res.employeeToUpdate;
+
         connection.query(`UPDATE employee SET role_id = "${newEmployeeRole}" WHERE id = "${employeeToUpdate}"`,
         function (err, res) {
             if (err) throw err;
