@@ -209,7 +209,7 @@ inquirer.prompt([
 })
 };
 
-// Change function to include console.table in response
+// View all departments 
 const viewDepartments = () => {
     const query = 
     'SELECT * FROM department';
@@ -220,16 +220,26 @@ const viewDepartments = () => {
     });
 };
 
+// Add a new department 
 const addDepartment = () => {
     inquirer.prompt([
         {
-            name: "name",
+            name: "departmentName",
             type: "input",
             message: "Enter the name of the department."
             // add validation
         }
     ]).then((answer) => {
-        
+        connection.query(
+            'INSERT INTO department SET ?',
+            {
+                name: answer.departmentName
+            }
+        );
+        connection.query('SELECT * FROM department', function (err, res) {
+            if (err) throw err;
+            console.log("Department Successfully added");
+            runTracker();
+        })
     })
-
 };
