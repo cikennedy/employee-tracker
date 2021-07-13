@@ -20,11 +20,10 @@ CREATE TABLE role (
 );
 
 -- Creates table for employee with relevant fields 
-DROP TABLE IF EXISTS employee;
 CREATE TABLE employee (
     id INT NOT NULL AUTO_INCREMENT,
     first_name VARCHAR(30) NOT NULL,
-    last_name DECIMAL(10,2) NOT NULL,
+    last_name VARCHAR(30) NOT NULL,
     role_id INT NOT NULL,
     manager_id INT,
     PRIMARY KEY (id)

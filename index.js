@@ -6,7 +6,7 @@ const connection = mysql.createConnection({
     host: 'localhost',
     port: 3306,
     user: 'root',
-    password: '',
+    password: 'Password123',
     database: 'employeetrackerDB',
 });
 
@@ -85,6 +85,8 @@ const viewEmployees = () => {
 
 // Add employees 
 const addEmployee = () => {
+    connection.query('SELECT * FROM role', function (err, res) {
+        if (err) throw err;
     inquirer.prompt([
         {
             name: "first_name",
@@ -137,6 +139,7 @@ const addEmployee = () => {
             runTracker();
         })
     })
+})
 };
 
 const updateEmployeeRole = () => {
