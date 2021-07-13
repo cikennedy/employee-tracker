@@ -8,28 +8,29 @@ USE employeetrackerDB;
 -- check in on roles and department name not properly working
 -- check to see if drop tables if exists is needed
 
-DROP TABLE IF EXISTS department;
+-- Creates table for department with relevant fields 
 CREATE TABLE department (
     id INT NOT NULL AUTO_INCREMENT,
-    department_name VARCHAR(30),
+    name VARCHAR(30) NOT NULL,
     PRIMARY KEY (id)
 );
 
-DROP TABLE IF EXISTS roles;
-CREATE TABLE roles (
+-- Creates table for role with relevant fields 
+CREATE TABLE role (
     id INT NOT NULL AUTO_INCREMENT,
-    title VARCHAR(30),
-    salary DECIMAL(10,2),
-    department_id INT,
+    title VARCHAR(30) NOT NULL,
+    salary DECIMAL(10,2) NOT NULL,
+    department_id INT NOT NULL,
     PRIMARY KEY (id)
 );
 
+-- Creates table for employee with relevant fields 
 DROP TABLE IF EXISTS employee;
 CREATE TABLE employee (
     id INT NOT NULL AUTO_INCREMENT,
-    first_name VARCHAR(30),
-    last_name DECIMAL(10,2),
-    roles_id INT,
-    manager_id INT,
+    first_name VARCHAR(30) NOT NULL,
+    last_name DECIMAL(10,2) NOT NULL,
+    role_id INT NOT NULL,
+    manager_id INT NOT NULL,
     PRIMARY KEY (id)
 );
