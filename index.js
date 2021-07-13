@@ -101,27 +101,42 @@ const addEmployee = () => {
         {
             name: "role",
             type: "list",
-            message: "Select the employee's role."
-            //choices: 
+            message: "Select the employee's role.",
+            // function to provide the list of the employee roles 
+            choices: function() {
+                var roleArr = [];
+                for (let i = 0; i < res.length; i++) {
+                    roleArr.push(res[i].title);
+                }
+                return roleArr;
+            }
         },
         {
             name: "manager",
-            type: "list",
-            message: "Select the employee's manager."
-            //choices: 
+            type: "input",
+            message: "If the employee has a manager, enter the manager id."
         }
     ]).then((answer) => {
-        connection.query('INSERT INTO employee SET ?'
+        let role_id;
+        for (let j = 0; j < res.length; j++) {
+            if (res[j].title == answer.role) {
+                role_id = res[j].id;
+                console.log(role_id)
+            }
+        }
+        connection.query('INSERT INTO employee SET ?',
         {
-            first_name, 
-            last_name,
-            roles_id,
-            manager_id
-        }) 
-        VALUES (`${answer.first_name}`, `${answer.last_name}`')
-
+            first_name: answer.first_name, 
+            last_name: answer.last_name,
+            role_id: role_id,
+            manager_id: answer.manager_id
+        },
+        function (err) {
+            if (err) throw err;
+            console.log("Employee Successfully added");
+            runTracker();
+        })
     })
-
 };
 
 const updateEmployeeRole = () => {
