@@ -72,17 +72,18 @@ const runTracker = () => {
     })
 };
 
-// Function for viewing all employees. Check that all SQL terminology is correct
-// Change function to include console.table in response
+// Function for viewing all employees that are in the database 
 const viewEmployees = () => {
     const query = 
-    'SELECT first_name last_name FROM employee';
+    'SELECT * FROM employee';
     connection.query(query, (err, res) => {
-        res.forEach(({ first_name, last_name }) => console.log(first_name, last_name));
-        runSearch();
+        if (err) throw err;
+        console.table('Employee List:', res);
+        runTracker();
     });
 };
 
+// Add employees 
 const addEmployee = () => {
     inquirer.prompt([
         {
@@ -127,13 +128,14 @@ const updateEmployeeRole = () => {
 
 };
 
-// Change function to include console.table in response
+// View roles in the database 
 const viewRoles = () => {
     const query = 
-    'SELECT title FROM roles';
+    'SELECT * FROM role';
     connection.query(query, (err, res) => {
-        res.forEach(({ title }) => console.log(title));
-        runSearch();
+        if (err) throw err;
+        console.table('Role List:', res);
+        runTracker();
     });
 };
 
@@ -166,17 +168,18 @@ inquirer.prompt([
 // Change function to include console.table in response
 const viewDepartments = () => {
     const query = 
-    'SELECT department_name FROM department';
+    'SELECT * FROM department';
     connection.query(query, (err, res) => {
-        res.forEach(({ department_name }) => console.log(department_name));
-        runSearch();
+        if (err) throw err;
+        console.table('Department List:', res);
+        runTracker();
     });
 };
 
 const addDepartment = () => {
     inquirer.prompt([
         {
-            name: "department_name",
+            name: "name",
             type: "input",
             message: "Enter the name of the department."
             // add validation

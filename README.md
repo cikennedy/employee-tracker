@@ -27,7 +27,9 @@
 
   ## Usage
 
-  N/A
+  To start this application, use the following command from the command line in the root directory: npm start
+
+  This will initialize the application. 
 
   ## License
 
