@@ -114,7 +114,7 @@ const addEmployee = () => {
             }
         },
         {
-            name: "manager",
+            name: "manager_id",
             type: "input",
             message: "If the employee has a manager, enter the manager id."
         }

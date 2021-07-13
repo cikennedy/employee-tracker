@@ -5,13 +5,11 @@
 
   This application is a solution for managing an organization's employees using Node.js, the inquirer package, and MySQL. 
 
-  As a business owner
-I want to be able to view and manage the departments, roles, and employees in my company
-So that I can organize and plan my business
+  Users are able to view employees, roles, and departments within the organization. Users can add to each of these as well as update employee roles as needed.
 
   [GitHub Repository](https://github.com/cikennedy/employee-tracker)
 
-  [Video Walkthrough](www.youtube.com)
+  [Video Walkthrough](https://youtu.be/mtbrIQzbU_w)
 
   ## Table of Contents
 
@@ -29,13 +27,15 @@ So that I can organize and plan my business
 
   For this project to run properly, install the necessary dependencies by using the following terminal command: npm i
 
-  The user will also need to have MySQL installed on their machine in order for this application to function. 
+  The user will also need to have MySQL installed on their machine with a working connection in order for this application to function locally. 
 
   ## Usage
 
   To start this application, use the following command from the command line in the root directory: npm start
 
   This will initialize the application and the inquirer prompts will follow. 
+
+  ![Screenshot](./assets/Screenshot.png)
 
   ## License
 
