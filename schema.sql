@@ -3,11 +3,6 @@ CREATE DATABASE employeetrackerDB;
 
 USE employeetrackerDB;
 
--- follow up for null / not null on all the below 
--- follow up on id references between tables
--- check in on roles and department name not properly working
--- check to see if drop tables if exists is needed
-
 -- Creates table for department with relevant fields 
 CREATE TABLE department (
     id INT NOT NULL AUTO_INCREMENT,
