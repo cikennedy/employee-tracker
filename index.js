@@ -104,7 +104,7 @@ const addEmployee = () => {
             name: "role",
             type: "list",
             message: "Select the employee's role.",
-            // function to provide the list of the employee roles 
+            // function to provide the array and then list of the employee roles 
             choices: function() {
                 var roleArr = [];
                 for (let i = 0; i < res.length; i++) {
@@ -158,6 +158,8 @@ const viewRoles = () => {
 };
 
 const addRole = () => {
+    connection.query('SELECT * FROM department', function (err, res) {
+        if (err) throw err;
 inquirer.prompt([
         {
             name: "title",
@@ -174,13 +176,37 @@ inquirer.prompt([
         {
             name: "department",
             type: "list",
-            message: "Select the role's department."
-            //choices: 
+            message: "Select the role's department.",
+            // function to provide the array and then list of the employee roles 
+            choices: function() {
+                var departmentArr = [];
+                for (let i = 0; i < res.length; i++) {
+                    departmentArr.push(res[i].name);
+                }
+                return departmentArr;
+            }
         }
     ]).then((answer) => {
+        let department_id;
+        for (let j = 0; j < res.length; j++) {
+            if (res[j].name == answer.department) {
+                department_id = res[j].id;
+            }
+        }
+        connection.query('INSERT INTO role SET ?',
+        {
+            title: answer.title, 
+            salary: answer.salary,
+            department_id: department_id,
+        },
+        function (err) {
+            if (err) throw err;
+            console.log("Role Successfully added");
+            runTracker();
+        })
         
     })
-
+})
 };
 
 // Change function to include console.table in response
