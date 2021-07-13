@@ -35,7 +35,7 @@
 
   This will initialize the application and the inquirer prompts will follow. 
 
-  ![Screenshot](./assets/Screenshot.png)
+  ![Screenshot](./Assets/Screenshot.png)
 
   ## License
 
